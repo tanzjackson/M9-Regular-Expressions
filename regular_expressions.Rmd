@@ -1,0 +1,34 @@
+---
+title: "regular_expressions"
+author: "Tanzania Jackson"
+date: "7/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+Collisions <- read_csv("https://data.cityofnewyork.us/resource/h9gi-nx95.csv")
+```
+
+Unfortunately I am having issues with this week's assignment as to what codes to write, how to write them and how to get the results I am looking for so instead of supplying code I will "talk" through what my thought process is for getting to the answers asked in each of the questions. 
+
+Question 1: Adding th, st, nd, rd and so on to the end of the street numbers.
+So for this I'm thinking its a combination of combinging strings and mutating them to separate the street number from the street string. Then from there we would need to write a code so that any time 0, 1, 2, 3, 4-9 is at the end of the number the related th, st, rd, and so is paired with it. Then at the end I assume we either keep the string together in its own column or combine it again to the original column it was in. 
+
+Question 2: Changing upper case string to title case. 
+For this, I assumed that it would just be simple as assigning variables to the different columns and performing the str_to_title code to the assigned variables.As you can see below, I tried to do that and it was unsuccessful. I'm assuming I would of had to perform the mutations to the columns in order to do the str_to_title script. 
+
+
+```{r}
+Collisions%>%
+  x <- select(Collisions, on_street_name)%>%
+  y <- select(Collisions, off_street_name)%>%
+  z <- select(Collisions, cross_street_name)%>%
+  str_to_title(c("x", "y", "z"))
+```
+
+Question 3: 
